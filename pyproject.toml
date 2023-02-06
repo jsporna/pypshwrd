@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "pypashword"
+version = "0.1.0"
+description = ""
+authors = ["Jakub Spórna <jakub.sporna@gmail.com>"]
+readme = "README.md"
+packages = [
+    {include = "*", from = "src"}
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+typer = "^0.7.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.1"
+flake8 = "^6.0.0"
+isort = "^5.12.0"
+black = "^23.1.0"
+coverage = "^7.1.0"
+pytest-cov = "^4.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+pashword = "pashword.app:app"
+
+[tool.black]
+line-length = 99
+
+[tool.isort]
+force_single_line = true
+known_first_party = "trajector"
+line_length = 99
+profile = "black"
+py_version=39
+src_paths = [
+    "src",
+    "tests",
+]
